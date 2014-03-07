@@ -1,0 +1,14 @@
+#!/bin/bash
+
+export PYTHON_CMD=/tmp/python.cmd
+rm $PYTHON_CMD
+touch $PYTHON_CMD
+chmod +x $PYTHON_CMD
+
+for path in ${PYTHONPATH//:/ }; do
+    echo "SET PYTHONPATH=%PYTHONPATH%;$(cygpath -pw $path)" >> $PYTHON_CMD
+done
+echo "C:\Python26\python.exe $(cygpath -aw $1)" >> $PYTHON_CMD
+
+cat $PYTHON_CMD
+cmd /c "$(cygpath -pw $PYTHON_CMD)"
