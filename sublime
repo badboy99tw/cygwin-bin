@@ -1,0 +1,1 @@
+sublime_text.exe "$(cygpath -pw $1)"
